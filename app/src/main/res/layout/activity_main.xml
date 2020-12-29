@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.MainActivity">
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:background="@color/white"
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_menu" />
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/bottom_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/grey"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:background="#FFF"
+                android:weightSum="4">
+
+
+                <RelativeLayout
+                    android:background="@{viewModel.isHome?@color/light_grey:@color/white}"
+                    android:onClick="@{()->viewModel.home()}"
+                    android:id="@+id/rl_menu1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/menu1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/home" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:background="@{viewModel.isSettings?@color/light_grey:@color/white}"
+                    android:onClick="@{()->viewModel.settings()}"
+                    android:id="@+id/rl_menu2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/menu2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:background="@{viewModel.isMail?@color/light_grey:@color/white}"
+                    android:onClick="@{()->viewModel.mail()}"
+                    android:id="@+id/rl_menu3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/menu3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:background="@{viewModel.isAcc?@color/light_grey:@color/white}"
+                    android:onClick="@{()->viewModel.account()}"
+                    android:id="@+id/rl_menu4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/menu4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/user" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.android.task2.ui.main.MainViewModel" />
+
+    </data>
+
+
+</layout>
